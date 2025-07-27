@@ -1,0 +1,16 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "typescript": "javascript"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class\\s*=\\s*\"([^\"]*)\"", 1], // HTML
+    ["class:\\s*'([^']*)'", 1], // Angular TS
+    ["class:\\s*\"([^\"]*)\"", 1],
+    ["ngClass:\\s*\"([^\"]*)\"", 1],
+    ["ngClass:\\s*'([^']*)'", 1]
+  ]
+}

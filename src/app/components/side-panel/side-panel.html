@@ -1,0 +1,30 @@
+<div class="relative h-full">
+  <div
+    class="bg-[url('/assets/images/bg-sidebar-mobile.svg')] h-40 bg-no-repeat bg-cover block md:hidden"
+  ></div>
+  <div
+    class="h-full min-w-[17.125rem] rounded-2xl min-h-[35.5rem] hidden md:block bg-cover bg-no-repeat bg-[url('/assets/images/bg-sidebar-desktop.svg')]"
+  ></div>
+  <div
+    class="absolute top-0 px-8 py-10 flex md:flex-col gap-4 md:gap-7 w-full justify-center md:justify-start"
+  >
+    @for (item of sidePanelList; track $index) {
+    <div class="flex items-center gap-4">
+      <div
+        class="w-8 h-8 border flex justify-center text-sm items-center rounded-full font-semibold"
+        [ngClass]="{'bg-primary-blue200 border-primary-blue200' : item.active, 'text-neutral-blue50 border-neutral-blue50': !item.active}"
+      >
+        {{item.id}}
+      </div>
+      <div class="text-sm hidden md:block">
+        <div class="uppercase text-neutral-blue50 text-xs">
+          step {{item.id}}
+        </div>
+        <div class="uppercase font-bold text-neutral-blue50 tracking-wider">
+          {{item.name}}
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

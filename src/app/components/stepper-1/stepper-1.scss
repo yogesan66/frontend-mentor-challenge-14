@@ -1,0 +1,15 @@
+.input-field {
+  @apply font-medium outline-none focus:ring-1 focus:ring-primary-purple600 text-primary-blue950 px-4 py-2 md:py-3 rounded-md md:rounded-lg border-[0.5px] border-neutral-grey500/50;
+}
+
+.input-field-invalid {
+  @apply font-medium outline-none text-primary-blue950 px-4 py-2 md:py-3 rounded-md md:rounded-lg border-[0.5px] border-primary-red500;
+}
+
+.error-msg {
+  @apply text-primary-red500 font-bold;
+}
+
+.form-label {
+  @apply text-primary-blue950;
+}

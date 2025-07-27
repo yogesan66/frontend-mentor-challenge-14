@@ -1,0 +1,56 @@
+<form class="flex flex-col gap-5" [formGroup]="form">
+  <!-- name -->
+  <div class="flex flex-col gap-1">
+    <div class="text-sm flex justify-between">
+      <label class="form-label">Name</label>
+      <span class="error-msg" *ngIf="f['name'].invalid && f['name'].touched"
+        >This field is required</span
+      >
+    </div>
+    <input
+      type="text"
+      placeholder="e.g. Stephen King"
+      formControlName="name"
+      [ngClass]="f['name'].invalid && f['name'].touched ? 'input-field-invalid' : 'input-field'"
+    />
+  </div>
+
+  <!-- email -->
+  <div class="flex flex-col gap-1">
+    <div class="text-sm flex justify-between">
+      <label class="form-label">Email Address</label>
+      <span class="error-msg" *ngIf="f['email'].invalid && f['email'].touched">
+        <ng-container
+          *ngIf="f['email'].errors?.['required']; else patternError"
+        >
+          This field is required
+        </ng-container>
+        <ng-template #patternError> This field is invalid</ng-template>
+      </span>
+    </div>
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="e.g. stephenking@lorem.com"
+      [ngClass]="f['email'].invalid && f['email'].touched ? 'input-field-invalid' : 'input-field'"
+    />
+  </div>
+
+  <!-- phone number -->
+  <div class="flex flex-col gap-1">
+    <div class="text-sm flex justify-between">
+      <label class="form-label">Phone Number</label>
+      <span
+        class="error-msg"
+        *ngIf="f['phoneNumber'].invalid && f['phoneNumber'].touched"
+        >This field is required</span
+      >
+    </div>
+    <input
+      type="tel"
+      formControlName="phoneNumber"
+      placeholder="e.g. +1 234 567 890"
+      [ngClass]="f['phoneNumber'].invalid && f['phoneNumber'].touched ? 'input-field-invalid' : 'input-field'"
+    />
+  </div>
+</form>

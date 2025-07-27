@@ -1,0 +1,41 @@
+<main
+  class="md:h-full flex flex-col justify-between md:pt-9 md:px-6 md:pb-4 lg:pl-[6.2rem] lg:pr-20"
+>
+  <section id="stepper" class="h-full">
+    <!-- stepper header -->
+    <div *ngIf="currentStepper != 5">
+      <app-header></app-header>
+    </div>
+
+    <!-- stepper content -->
+    @switch (currentStepper) { @case (1) {
+    <section id="stepper-1">
+      <app-stepper-1 #stepper1></app-stepper-1>
+    </section>
+    } @case (2) {
+    <section id="stepper-2">
+      <app-stepper-2 #stepper2></app-stepper-2>
+    </section>
+    } @case (3) {
+    <section id="stepper-3">
+      <app-stepper-3 #stepper3></app-stepper-3>
+    </section>
+    } @case (4) {
+    <section id="stepper-4">
+      <app-stepper-4></app-stepper-4>
+    </section>
+    }@case (5) {
+    <section id="stepper-5" class="h-full">
+      <app-stepper-5></app-stepper-5>
+    </section>
+    }}
+  </section>
+
+  <!-- stepper footer -->
+  <section *ngIf="currentStepper != 5" class="hidden md:block mt-5">
+    <app-footer
+      (nextStepEvent)="nextStep()"
+      (goBackEvent)="goBack()"
+    ></app-footer>
+  </section>
+</main>

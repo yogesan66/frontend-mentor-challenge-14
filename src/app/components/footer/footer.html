@@ -1,0 +1,21 @@
+<div
+  class="flex"
+  *ngIf="currentStepper$ | async as currentStepper"
+  [ngClass]="{'justify-between': currentStepper > 1, 'justify-end': currentStepper === 1 }"
+>
+  <button
+    *ngIf="currentStepper > 1"
+    (click)="goBack()"
+    class="hover:text-primary-blue950 text-neutral-grey500 duration-200 font-bold"
+  >
+    Go Back
+  </button>
+  <button
+    class="py-2 px-4 md:py-3 md:px-6 rounded-md md:rounded-lg text-neutral-blue100 hover:bg-opacity-80 duration-200"
+    [class.bg-primary-blue950]="currentStepper != 4"
+    [class.bg-primary-purple600]="currentStepper === 4"
+    (click)="nextStep()"
+  >
+    {{currentStepper === 4 ? "Confirm" : "Next Step"}}
+  </button>
+</div>

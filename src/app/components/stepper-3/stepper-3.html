@@ -1,0 +1,32 @@
+<div class="flex flex-col gap-4">
+  @for (item of addOnsList; track $index) {
+  <div
+    (click)="handleAddOns(item)"
+    class="text-sm md:text-base flex border-[0.5px] cursor-pointer hover:border-primary-purple600 duration-200 border-neutral-grey500/50 rounded-lg px-4 py-3 md:py-4 md:px-6 items-center justify-between md:w-[28rem]"
+    [class.border-primary-purple600]="isAddOnSelected(item)"
+    [class.bg-neutral-blue50]="isAddOnSelected(item)"
+  >
+    <div class="flex items-center gap-3 md:gap-6">
+      <div
+        class="flex justify-center items-end pb-1 border-[0.5px] border-neutral-grey500/50 w-5 h-5 rounded-[0.25rem]"
+        [class.bg-primary-purple600]="isAddOnSelected(item)"
+      >
+        <img
+          src="/assets/images/icon-checkmark.svg"
+          alt="check mark"
+          *ngIf="isAddOnSelected(item)"
+        />
+      </div>
+      <div>
+        <p class="text-primary-blue950 font-bold">{{item.heading}}</p>
+        <p class="text-neutral-grey500 text-xs md:text-base">
+          {{item.subHeading}}
+        </p>
+      </div>
+    </div>
+    <div class="text-primary-purple600">
+      +${{isYearly ? `${item.price.yearly}/yr`: `${item.price.monthly}/mo`}}
+    </div>
+  </div>
+  }
+</div>

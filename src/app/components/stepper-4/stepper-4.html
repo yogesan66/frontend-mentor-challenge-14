@@ -1,0 +1,40 @@
+<div class="text-sm md:text-base flex flex-col gap-5 md:w-[28rem]">
+  <div class="bg-neutral-blue50 rounded-lg py-5 px-6">
+    <div
+      class="flex justify-between text-primary-blue950 font-bold items-center"
+    >
+      <div class="flex flex-col">
+        <span
+          >{{planDetails.name}} {{isYearly ? "(Yearly)" : "(Monthly)"}}</span
+        >
+        <a class="text-primary-purple600 hover:underline" (click)="changePlan()"
+          >change</a
+        >
+      </div>
+      <span
+        >${{isYearly ? `${planDetails.price.yearly}/yr` :
+        `${planDetails.price.monthly}/mo`}}</span
+      >
+    </div>
+    <hr class="my-4" *ngIf="addOns.length > 0" />
+    <div class="flex flex-col gap-3">
+      @for (item of addOns; track $index) {
+      <div class="flex justify-between">
+        <span class="text-neutral-grey500">{{item.heading}}</span>
+        <span class="text-primary-blue950"
+          >+${{isYearly ? `${item.price.yearly}/yr` :
+          `${item.price.monthly}/mo`}}</span
+        >
+      </div>
+      }
+    </div>
+  </div>
+  <div class="flex justify-between px-6 items-center">
+    <span class="text-neutral-grey500"
+      >Total {{isYearly ? "(per year)" : "(per month)"}}</span
+    >
+    <span class="text-primary-purple600 font-bold text-base md:text-xl"
+      >+${{total}}{{isYearly ? "/yr" : "/mo"}}</span
+    >
+  </div>
+</div>
