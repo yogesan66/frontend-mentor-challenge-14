@@ -51,7 +51,7 @@ export const SIDE_PANEL_LIST: SidePanelItem[] = [
 
 export const PLAN_LIST: Plan[] = [
   {
-    image: '/assets/images/icon-arcade.svg',
+    image: 'assets/images/icon-arcade.svg',
     name: 'Arcade',
     price: {
       monthly: 9,
@@ -59,7 +59,7 @@ export const PLAN_LIST: Plan[] = [
     },
   },
   {
-    image: '/assets/images/icon-advanced.svg',
+    image: 'assets/images/icon-advanced.svg',
     name: 'Advanced',
     price: {
       monthly: 12,
@@ -67,7 +67,7 @@ export const PLAN_LIST: Plan[] = [
     },
   },
   {
-    image: '/assets/images/icon-pro.svg',
+    image: 'assets/images/icon-pro.svg',
     name: 'Pro',
     price: {
       monthly: 15,
