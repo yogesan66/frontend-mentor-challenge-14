@@ -9,6 +9,7 @@ import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { reducer } from './components/store/reducers';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideStore({ multiStepFormData: reducer }),
     provideStoreDevtools({
       maxAge: 25,
+      logOnly: !environment.production,
     }),
   ],
 };
