@@ -20,12 +20,10 @@
     <div class="text-sm flex justify-between">
       <label class="form-label">Email Address</label>
       <span class="error-msg" *ngIf="f['email'].invalid && f['email'].touched">
-        <ng-container
-          *ngIf="f['email'].errors?.['required']; else patternError"
-        >
+        <ng-container *ngIf="f['email'].errors?.['required']; else emailError">
           This field is required
         </ng-container>
-        <ng-template #patternError> This field is invalid</ng-template>
+        <ng-template #emailError> This field is invalid</ng-template>
       </span>
     </div>
     <input
@@ -43,8 +41,14 @@
       <span
         class="error-msg"
         *ngIf="f['phoneNumber'].invalid && f['phoneNumber'].touched"
-        >This field is required</span
       >
+        <ng-container
+          *ngIf="f['phoneNumber'].errors?.['required']; else patternError"
+        >
+          This field is required
+        </ng-container>
+        <ng-template #patternError> This field is invalid</ng-template>
+      </span>
     </div>
     <input
       type="tel"

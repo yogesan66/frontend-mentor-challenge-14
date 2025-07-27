@@ -32,7 +32,13 @@ export class Stepper1 implements OnInit {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required]],
+      phoneNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\+\d{1,3} ?\d{3} ?\d{3} ?\d{3,4}$/),
+        ],
+      ],
     });
   }
 
